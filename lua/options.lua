@@ -12,7 +12,7 @@ vim.opt.showmode = false
 vim.opt.breakindent = true
 
 -- Set cursor style to default
-vim.opt.guicursor = ""
+vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor/lCursor"
 
 -- Tab settings
 vim.opt.tabstop = 4 -- Defines column multiple used to display tab character
