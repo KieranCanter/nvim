@@ -58,7 +58,14 @@ return {
                 styles = {
                     comments = {},
                     conditionals = {},
-                } 
+                },
+                custom_highlights = function(colors)
+                    return {
+                        LineNr = { bg = colors.base },
+                        CursorLineNr = { bg = colors.base },
+                        SignColumn = { bg = colors.base }
+                    }
+                end
             })
 
             SetColorScheme();
