@@ -1,6 +1,4 @@
 require("lazy").setup({
-    "NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
-
     require("plugins/colors"),
     require("plugins/gitsigns"),
     require("plugins/which-key"),
@@ -15,15 +13,7 @@ require("lazy").setup({
     require("plugins/indent_line"),
     require("plugins/lint"),
     require("plugins/autopairs"),
-    {
-        dir = "~/candela.nvim",
-        name = "candela",
-        lazy = false,
-        enabled = true,
-        config = function()
-            require("candela").setup()
-        end
-    },
+    require("plugins/guess-indent"),
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the

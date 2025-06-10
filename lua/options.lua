@@ -1,5 +1,4 @@
 -- Show relative line numbers
-vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- Disable mouse mode
@@ -40,8 +39,9 @@ vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 
--- Disable line wrapping
+-- Disable line wrapping but wrap when convenient
 vim.opt.wrap = false
+vim.opt.linebreak = true
 
 -- Rulers
 vim.opt.colorcolumn = "80,100,120" -- Set column ruler
@@ -53,7 +53,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Decrease update time
-vim.opt.updatetime = 50
+vim.opt.updatetime = 200
 
 -- Decrease mapped sequence wait time
 vim.opt.timeoutlen = 300
@@ -71,3 +71,6 @@ vim.opt.cursorline = true
 
 -- Enable 24-bit RGB color in the terminal UI
 vim.opt.termguicolors = true
+
+-- Allow cursor to move where there is no text in visual block mode
+vim.opt.virtualedit = "block"
