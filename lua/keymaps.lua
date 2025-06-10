@@ -1,8 +1,11 @@
 -- File explorer
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex, { desc = "File explorer" })
+vim.keymap.set("n", "<leader>ex", vim.cmd.Ex, { desc = "Neotree" })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Make ctrl+backspace function like delete in insert mode
+vim.keymap.set("i", "<C-BS>", "<Del>")
 
 -- Swap lines up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
