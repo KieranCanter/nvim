@@ -1,4 +1,5 @@
--- Show relative line numbers
+-- Show current line number and relative line numbers
+vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- Disable mouse mode
