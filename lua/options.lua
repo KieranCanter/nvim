@@ -40,8 +40,8 @@ vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 
--- Disable line wrapping but wrap when convenient
-vim.opt.wrap = false
+-- Enable line wrapping and wrap when convenient
+vim.opt.wrap = true
 vim.opt.linebreak = true
 
 -- Rulers

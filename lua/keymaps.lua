@@ -48,8 +48,8 @@ vim.keymap.set("n", "<C-M-j>", ":resize -3<CR>", { desc = "Horizontal split size
 vim.keymap.set("n", "<C-M-k>", ":resize +3<CR>", { desc = "Horizontal split size +3" })
 
 -- Buffers
-vim.keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+vim.keymap.set("n", "<leader>bh", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "<leader>bl", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 vim.keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
@@ -78,19 +78,20 @@ vim.keymap.set(
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy selection to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy rest of line to system clipboard" })
 
--- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set("n", "<M-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<M-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Go to next local quickfix location" })
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Go to previous local quickfix location" })
+-- Quickfix keymaps
+vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, { desc = "Open [Q]uickfix list" })
+vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>zz", { desc = "Go to previous quickfix location" })
+vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>zz", { desc = "Go to next quickfix location" })
+vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Open quickfix [L]ocation list" })
+vim.keymap.set("n", "<leader>lk", "<cmd>lprev<CR>zz", { desc = "Go to previous local quickfix location" })
+vim.keymap.set("n", "<leader>lj", "<cmd>lnext<CR>zz", { desc = "Go to next local quickfix location" })
 
 -- Start search and replace command for current word
 vim.keymap.set(
 	"n",
-	"<leader>sb",
+	"<leader>sW",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "[S]earch and replace current word in [B]uffer" }
+	{ desc = "[S]earch and replace current [W]ord in buffer" }
 )
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
