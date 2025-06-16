@@ -47,22 +47,15 @@ vim.keymap.set("n", "<C-M-l>", ":vertical resize +3<CR>", { desc = "Vertical spl
 vim.keymap.set("n", "<C-M-j>", ":resize -3<CR>", { desc = "Horizontal split size -3" })
 vim.keymap.set("n", "<C-M-k>", ":resize +3<CR>", { desc = "Horizontal split size +3" })
 
--- Buffers
-vim.keymap.set("n", "<leader>bh", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "<leader>bl", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-vim.keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
-
 -- Tabs
-vim.keymap.set("n", "<leader><tab><S-l>", "<cmd>tablast<cr>", { desc = "Last Tab" })
-vim.keymap.set("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
-vim.keymap.set("n", "<leader><tab><S-h>", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-vim.keymap.set("n", "<leader><tab>l", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-vim.keymap.set("n", "<leader><tab>h", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "[<S-tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "]<S-tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+vim.keymap.set("n", "[<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+vim.keymap.set("n", "]<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
--- Move line below to the end of current line
+-- Move below line to the end of current line
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Delete/paste without overwriting clipboard register
@@ -77,14 +70,6 @@ vim.keymap.set(
 -- Copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy selection to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy rest of line to system clipboard" })
-
--- Quickfix keymaps
-vim.keymap.set("n", "<leader>qq", vim.diagnostic.setqflist, { desc = "Open [Q]uickfix list" })
-vim.keymap.set("n", "<leader>qk", "<cmd>cprev<CR>zz", { desc = "Go to previous quickfix location" })
-vim.keymap.set("n", "<leader>qj", "<cmd>cnext<CR>zz", { desc = "Go to next quickfix location" })
-vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "Open quickfix [L]ocation list" })
-vim.keymap.set("n", "<leader>lk", "<cmd>lprev<CR>zz", { desc = "Go to previous local quickfix location" })
-vim.keymap.set("n", "<leader>lj", "<cmd>lnext<CR>zz", { desc = "Go to next local quickfix location" })
 
 -- Start search and replace command for current word
 vim.keymap.set(
