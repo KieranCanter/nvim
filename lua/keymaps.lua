@@ -50,10 +50,13 @@ vim.keymap.set("n", "<C-M-k>", ":resize +3<CR>", { desc = "Horizontal split size
 -- Tabs
 vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-vim.keymap.set("n", "[<S-tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-vim.keymap.set("n", "]<S-tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
-vim.keymap.set("n", "[<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+vim.keymap.set("n", "[<S-tab>", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+vim.keymap.set("n", "]<S-tab>", "<cmd>tablast<cr>", { desc = "Last Tab" })
+vim.keymap.set("n", "[<tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 vim.keymap.set("n", "]<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+
+-- Quickfix
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Move below line to the end of current line
 vim.keymap.set("n", "J", "mzJ`z")
