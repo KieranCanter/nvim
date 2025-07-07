@@ -8,12 +8,12 @@ require("lazy").setup({
     require("plugins/blink-cmp"),
     require("plugins/todo-comments"),
     require("plugins/mini"),
-    require("plugins/neo-tree"),
     require("plugins/treesitter"),
     require("plugins/indent_line"),
     require("plugins/lint"),
     require("plugins/autopairs"),
     require("plugins/guess-indent"),
+    require("plugins/undotree"),
     {
         dir = "~/candela.nvim",
         name = "candela",
