@@ -14,14 +14,7 @@ require("lazy").setup({
     require("plugins/autopairs"),
     require("plugins/guess-indent"),
     require("plugins/undotree"),
-    {
-        dir = "~/candela.nvim",
-        name = "candela",
-        enabled = true,
-        config = function()
-            require("candela").setup()
-        end
-    },
+    require("plugins/candela"),
 }, {
     ui = {
         -- If you are using a Nerd Font: set icons to an empty table which will use the
