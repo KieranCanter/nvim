@@ -61,7 +61,7 @@ return {
                 map("n", "<leader>hQ", function()
                     gitsigns.setqflist('all')
                 end, { desc = "git set [Q]uickfix list for all files" })
-                map("n", "<leader>hQ", gitsigns.setqflist, { desc = "git set [q]uickfix list for current file" })
+                map("n", "<leader>hq", gitsigns.setqflist, { desc = "git set [q]uickfix list for current file" })
                 -- Toggles
                 map("n", "<leader>tgb", gitsigns.blame, { desc = "[T]oggle [g]it [b]lame" })
                 map("n", "<leader>tgw", gitsigns.blame, { desc = "[T]oggle [g]it [w]ord diff" })
