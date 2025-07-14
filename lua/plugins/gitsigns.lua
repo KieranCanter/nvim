@@ -15,57 +15,55 @@ return {
             on_attach = function(bufnr)
                 local gitsigns = require("gitsigns")
 
-                local function map(mode, l, r, opts)
-                    opts = opts or {}
-                    opts.buffer = bufnr
-                    vim.keymap.set(mode, l, r, opts)
+                local function map(mode, keys, func, desc)
+                    vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = "[g]it: " .. desc })
                 end
 
                 -- Navigation
-                map("n", "]h", function()
+                vim.keymap.set("n", "]g", function()
                     if vim.wo.diff then
-                        vim.cmd.normal({ "]h", bang = true })
+                        vim.cmd.normal({ "]g", bang = true })
                     else
                         gitsigns.nav_hunk("next")
                     end
-                end, { desc = "Jump to next git [h]unk" })
+                end, { desc = "Jump to next [g]it hunk" })
 
-                map("n", "[h", function()
+                vim.keymap.set("n", "[g", function()
                     if vim.wo.diff then
-                        vim.cmd.normal({ "[h", bang = true })
+                        vim.cmd.normal({ "[g", bang = true })
                     else
                         gitsigns.nav_hunk("prev")
                     end
-                end, { desc = "Jump to previous git [h]unk" })
+                end, { desc = "Jump to previous [g]it hunk" })
 
                 -- Actions
                 -- visual mode
-                map("v", "<leader>hs", function()
+                map("v", "<leader>gs", function()
                     gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-                end, { desc = "git [s]tage hunk" })
-                map("v", "<leader>hr", function()
+                end, "[s]tage hunk")
+                map("v", "<leader>gr", function()
                     gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-                end, { desc = "git [r]eset hunk" })
+                end, "[r]eset hunk")
                 -- normal mode
-                map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" })
-                map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" })
-                map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "git [S]tage buffer" })
-                map("n", "<leader>hu", gitsigns.stage_hunk, { desc = "git [u]ndo stage hunk" })
-                map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git [R]eset buffer" })
-                map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" })
-                map("n", "<leader>hb", gitsigns.blame_line, { desc = "git [b]lame line" })
-                map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" })
-                map("n", "<leader>hD", function()
+                map("n", "<leader>gs", gitsigns.stage_hunk, "[s]tage hunk")
+                map("n", "<leader>gr", gitsigns.reset_hunk, "[r]eset hunk")
+                map("n", "<leader>gS", gitsigns.stage_buffer, "[S]tage buffer")
+                map("n", "<leader>gu", gitsigns.stage_hunk, "[u]ndo stage hunk")
+                map("n", "<leader>gR", gitsigns.reset_buffer, "[R]eset buffer")
+                map("n", "<leader>gp", gitsigns.preview_hunk, "[p]review hunk")
+                map("n", "<leader>gb", gitsigns.blame_line, "[b]lame line")
+                map("n", "<leader>gd", gitsigns.diffthis, "[d]iff against index")
+                map("n", "<leader>gD", function()
                     gitsigns.diffthis("@")
-                end, { desc = "git [D]iff against last commit" })
-                map("n", "<leader>hQ", function()
+                end, "[D]iff against last commit")
+                map("n", "<leader>gQ", function()
                     gitsigns.setqflist('all')
-                end, { desc = "git set [Q]uickfix list for all files" })
-                map("n", "<leader>hq", gitsigns.setqflist, { desc = "git set [q]uickfix list for current file" })
+                end, "set [Q]uickfix list for all files")
+                map("n", "<leader>gq", gitsigns.setqflist, "set [q]uickfix list for current file")
                 -- Toggles
-                map("n", "<leader>tgb", gitsigns.blame, { desc = "[T]oggle [g]it [b]lame" })
-                map("n", "<leader>tgw", gitsigns.blame, { desc = "[T]oggle [g]it [w]ord diff" })
-                map("n", "<leader>tgd", gitsigns.preview_hunk_inline, { desc = "[T]oggle git show [d]eleted" })
+                vim.keymap.set("n", "<leader>tgb", gitsigns.blame, { desc = "[t]oggle [g]it [b]lame" })
+                vim.keymap.set("n", "<leader>tgw", gitsigns.blame, { desc = "[t]oggle [g]it [w]ord diff" })
+                vim.keymap.set("n", "<leader>tgd", gitsigns.preview_hunk_inline, { desc = "[t]oggle [g]it show [d]eleted" })
             end,
         },
     },
