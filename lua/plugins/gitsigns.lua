@@ -65,7 +65,7 @@ return {
                 map("n", "<leader>gq", gitsigns.setqflist, "set [q]uickfix list for current file")
                 -- Toggles
                 vim.keymap.set("n", "<leader>tgb", gitsigns.blame, { desc = "[t]oggle [g]it [b]lame" })
-                vim.keymap.set("n", "<leader>tgw", gitsigns.blame, { desc = "[t]oggle [g]it [w]ord diff" })
+                vim.keymap.set("n", "<leader>tgw", gitsigns.toggle_word_diff, { desc = "[t]oggle [g]it [w]ord diff" })
                 vim.keymap.set("n", "<leader>tgd", gitsigns.preview_hunk_inline, { desc = "[t]oggle [g]it show [d]eleted" })
             end,
         },
