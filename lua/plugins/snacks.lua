@@ -10,7 +10,6 @@ return {
     picker = { enabled = true },
   },
   keys = {
-    { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     -- find
     { "<leader>fs", function() Snacks.picker.smart() end, desc = "Find Files [s]mart" },
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find [b]uffers" },
@@ -27,6 +26,7 @@ return {
     -- search
     { "<leader>sr", function() Snacks.picker.resume() end, desc = "Search [r]esume" },
     { "<leader>sh", function() Snacks.picker.help() end, desc = "Search [h]elp Pages" },
+    { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Search [c]ommand History" },
     { "<leader>sC", function() Snacks.picker.commands() end, desc = "Search [C]ommands" },
     { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc = "Search [d]iagnostics in Buffer" },
     { "<leader>sD", function() Snacks.picker.diagnostics() end, desc = "Search [D]iagnostics" },
