@@ -82,6 +82,10 @@ vim.keymap.set(
 	{ desc = "[S]earch and replace current [W]ord in buffer" }
 )
 
+-- Don't absolve selection after indenting in visual mode
+vim.keymap.set({"x"}, ">", ">gv", { desc = "Don't absolve selection after indent" })
+vim.keymap.set({"x"}, "<", "<gv", { desc = "Don't absolve selection after indent" })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.

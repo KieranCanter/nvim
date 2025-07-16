@@ -58,7 +58,7 @@ return {
                 end, "[D]iff against last commit")
                 map("n", "<leader>g1", function()
                     gitsigns.diffthis("~1")
-                end, "[D]iff against HEAD~1")
+                end, "[D]iff against @~1")
                 map("n", "<leader>gQ", function()
                     gitsigns.setqflist('all')
                 end, "set [Q]uickfix list for all files")
