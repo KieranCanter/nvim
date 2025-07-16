@@ -64,10 +64,10 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Delete/paste without overwriting clipboard register
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without overwriting clipboard register" })
 vim.keymap.set(
-	"x",
-	"<leader>p",
-	[["_dP]],
-	{ desc = "Delete selection and paste without overwriting clipboard register" }
+    "x",
+    "<leader>p",
+    [["_dP]],
+    { desc = "Delete selection and paste without overwriting clipboard register" }
 )
 
 -- Copy to system clipboard
@@ -76,15 +76,21 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy rest of line to system 
 
 -- Start search and replace command for current word
 vim.keymap.set(
-	"n",
-	"<leader>sW",
-	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "[S]earch and replace current [W]ord in buffer" }
+    "n",
+    "<leader>sW",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { desc = "[S]earch and replace current [W]ord in buffer" }
 )
 
 -- Don't absolve selection after indenting in visual mode
-vim.keymap.set({"x"}, ">", ">gv", { desc = "Don't absolve selection after indent" })
-vim.keymap.set({"x"}, "<", "<gv", { desc = "Don't absolve selection after indent" })
+vim.keymap.set({ "x" }, ">", ">gv", { desc = "Don't absolve selection after indent" })
+vim.keymap.set({ "x" }, "<", "<gv", { desc = "Don't absolve selection after indent" })
+
+-- Wrap loclist/qflist navigation
+vim.keymap.set('n', ']l', '<Cmd>try | lnext | catch | lfirst | catch | endtry<CR>')
+vim.keymap.set('n', '[l', '<Cmd>try | lprevious | catch | llast | catch | endtry<CR>')
+vim.keymap.set('n', ']q', '<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>')
+vim.keymap.set('n', '[q', '<Cmd>try | cprevious | catch | clast | catch | endtry<CR>')
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -96,6 +102,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 -- NOTE: Dev purposes
 P = function(v)
-	print(vim.inspect(v))
-	return v
+    print(vim.inspect(v))
+    return v
 end
