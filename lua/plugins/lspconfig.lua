@@ -45,7 +45,9 @@ return {
 
                     -- Rename the variable under your cursor.
                     -- Most Language Servers support renaming across files, etc.
-                    map("glR", vim.lsp.buf.rename, "[R]ename")
+                    map("grn", vim.lsp.buf.rename, "[r]ename")
+
+                    map("gra", vim.lsp.buf.rename, "code [a]ction")
 
                     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                     ---@param client vim.lsp.Client
