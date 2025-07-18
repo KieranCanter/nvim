@@ -10,6 +10,10 @@ vim.keymap.set("i", "<C-BS>", "<Del>")
 -- Swap lines up/down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move up" })
+-- Don't absolve selection after indenting in visual mode
+vim.keymap.set({ "x" }, "L", ">gv", { desc = "Don't absolve selection after indent" })
+vim.keymap.set({ "x" }, "H", "<gv", { desc = "Don't absolve selection after indent" })
+
 
 -- Vertically center cursor after page up/down and search
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -81,10 +85,6 @@ vim.keymap.set(
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { desc = "[S]earch and replace current [W]ord in buffer" }
 )
-
--- Don't absolve selection after indenting in visual mode
-vim.keymap.set({ "x" }, ">", ">gv", { desc = "Don't absolve selection after indent" })
-vim.keymap.set({ "x" }, "<", "<gv", { desc = "Don't absolve selection after indent" })
 
 -- Wrap loclist/qflist navigation
 vim.keymap.set('n', ']l', '<Cmd>try | lnext | catch | lfirst | catch | endtry<CR>')
