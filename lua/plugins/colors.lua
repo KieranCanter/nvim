@@ -63,9 +63,14 @@ return {
                     return {
                         LineNr = { bg = colors.base },
                         CursorLineNr = { bg = colors.base },
-                        SignColumn = { bg = colors.base }
+                        SignColumn = { bg = colors.base },
+                        Visual = { bg = colors.surface0 },
                     }
-                end
+                end,
+                float = {
+                    transparent = true,
+                    solid = false,
+                }
             })
 
             SetColorScheme();
