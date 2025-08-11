@@ -44,6 +44,9 @@ vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.wrap = true
 vim.opt.linebreak = true
 
+-- Set column to break text at when formatting with `gw`
+vim.opt.textwidth = 100
+
 -- Rulers
 vim.opt.colorcolumn = "80,100,120" -- Set column ruler
 local normal_bg = vim.api.nvim_get_hl(0, { name = "CursorLine" }).bg
