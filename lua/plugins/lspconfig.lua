@@ -47,7 +47,7 @@ return {
                     -- Most Language Servers support renaming across files, etc.
                     map("grn", vim.lsp.buf.rename, "[r]ename")
 
-                    map("gra", vim.lsp.buf.rename, "code [a]ction")
+                    map("gra", vim.lsp.buf.code_action, "code [a]ction")
 
                     -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
                     ---@param client vim.lsp.Client
