@@ -13,7 +13,6 @@ require("lazy").setup({
     require("plugins/lint"),
     require("plugins/autopairs"),
     require("plugins/guess-indent"),
-    require("plugins/undotree"),
     require("plugins/candela"),
 }, {
     ui = {
