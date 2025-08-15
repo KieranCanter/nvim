@@ -8,6 +8,7 @@ return {
   ---@type snacks.Config
   opts = {
     picker = { enabled = true },
+    image = { enabled = true },
   },
   keys = {
     -- find
