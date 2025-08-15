@@ -14,7 +14,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move up" })
 vim.keymap.set({ "x" }, "L", ">gv", { desc = "Don't absolve selection after indent" })
 vim.keymap.set({ "x" }, "H", "<gv", { desc = "Don't absolve selection after indent" })
 
-
 -- Vertically center cursor after page up/down and search
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -65,6 +64,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Move below line to the end of current line
 vim.keymap.set("n", "J", "mzJ`z")
 
+-- Format entire buffer to textwidth
+vim.keymap.set("n", "gW", "ggVGgw<C-o><C-o>")
+
 -- Delete/paste without overwriting clipboard register
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without overwriting clipboard register" })
 vim.keymap.set(
@@ -100,7 +102,7 @@ vim.keymap.set('n', '[q', '<Cmd>try | cprevious | catch | clast | catch | endtry
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- NOTE: Dev purposes
+-- INFO: Dev purposes
 P = function(v)
     print(vim.inspect(v))
     return v
