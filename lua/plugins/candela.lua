@@ -1,5 +1,3 @@
--- Candela log analyzer/regex filter
--- https://github.com/kierancanter/candela.nvim
 local candela_keymaps = {
     {
         lhs = "<leader>cds",

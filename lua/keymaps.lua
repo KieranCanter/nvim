@@ -103,14 +103,6 @@ vim.api.nvim_set_keymap("n", "<M-l>", "]q", {})
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 vim.keymap.set("t", "<C-[><C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
--- todo-comments.nvim
-vim.api.nvim_set_keymap("n", "<leader>lt", "", {
-    desc = "Open todo-comments in quickfix list",
-    callback = function()
-        vim.api.nvim_exec2("TodoQuickFix", {})
-    end,
-})
-
 -- INFO: Dev purposes
 P = function(v)
     print(vim.inspect(v))

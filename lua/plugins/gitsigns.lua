@@ -1,8 +1,5 @@
--- gitsigns
--- https://github.com/lewis6991/gitsigns.nvim
-
 return {
-    { -- Adds git related signs to the gutter, as well as utilities for managing changes
+    {
         "lewis6991/gitsigns.nvim",
         opts = {
             signs = {
@@ -36,7 +33,8 @@ return {
                     end
                 end, { desc = "Jump to previous [g]it hunk" })
 
-                -- Actions
+                -- Actions --
+
                 -- visual mode
                 map("v", "<leader>gs", function()
                     gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
@@ -44,6 +42,7 @@ return {
                 map("v", "<leader>gr", function()
                     gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
                 end, "[r]eset hunk")
+
                 -- normal mode
                 map("n", "<leader>gs", gitsigns.stage_hunk, "[s]tage hunk")
                 map("n", "<leader>gr", gitsigns.reset_hunk, "[r]eset hunk")
@@ -63,6 +62,7 @@ return {
                     gitsigns.setqflist('all')
                 end, "set [Q]uickfix list for all files")
                 map("n", "<leader>gq", gitsigns.setqflist, "set [q]uickfix list for current file")
+
                 -- Toggles
                 vim.keymap.set("n", "<leader>tgb", gitsigns.blame, { desc = "[t]oggle [g]it [b]lame" })
                 vim.keymap.set("n", "<leader>tgw", gitsigns.toggle_word_diff, { desc = "[t]oggle [g]it [w]ord diff" })

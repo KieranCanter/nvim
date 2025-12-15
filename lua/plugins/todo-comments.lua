@@ -1,5 +1,9 @@
--- todo-comments
--- https://github.com/folke/todo-comments.nvim
+vim.api.nvim_set_keymap("n", "<leader>lt", "", {
+    desc = "Open todo-comments in quickfix list",
+    callback = function()
+        vim.api.nvim_exec2("TodoQuickFix", {})
+    end,
+})
 
 return {
     {
