@@ -40,9 +40,9 @@ vim.opt.inccommand = "split" -- Preview substitutions live, as you type!
 vim.opt.scrolloff = 8 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 
--- Enable line wrapping and wrap when convenient
-vim.opt.wrap = true
-vim.opt.linebreak = true
+-- Disable line wrapping
+vim.opt.wrap = false
+vim.opt.linebreak = true -- if wrapping is on, break at whitespace, not character
 
 -- Set column to break text at when formatting with `gw`
 vim.opt.textwidth = 100

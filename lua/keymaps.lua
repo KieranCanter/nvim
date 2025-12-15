@@ -29,8 +29,8 @@ vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Horizontal scroll
-vim.keymap.set("n", "<C-S-d>", "20zh")
-vim.keymap.set("n", "<C-S-u>", "20zl")
+vim.keymap.set("n", "<S-h>", "20zh")
+vim.keymap.set("n", "<S-l>", "20zl")
 
 -- Keybinds to make split navigation easier.
 -- Use CTRL+<hjkl> to switch between splits
