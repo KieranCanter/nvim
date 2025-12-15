@@ -17,6 +17,8 @@ vim.keymap.set({ "x" }, "H", "<gv", { desc = "Don't absolve selection after inde
 -- Vertically center cursor after page up/down and search
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
@@ -53,12 +55,10 @@ vim.keymap.set("n", "<C-M-k>", ":resize +3<CR>", { desc = "Horizontal split size
 -- Tabs
 vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
 vim.keymap.set("n", "<leader><tab>c", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-vim.keymap.set("n", "[<S-tab>", "<cmd>tabfirst<cr>", { desc = "First Tab" })
-vim.keymap.set("n", "]<S-tab>", "<cmd>tablast<cr>", { desc = "Last Tab" })
 vim.keymap.set("n", "[<tab>", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 vim.keymap.set("n", "]<tab>", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 
--- Quickfix
+-- Quickfix diagnostics
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Move below line to the end of current line
@@ -78,7 +78,7 @@ vim.keymap.set(
 
 -- Copy to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy selection to system clipboard" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Copy rest of line to system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+y$]], { desc = "Copy rest of line to system clipboard" })
 
 -- Start search and replace command for current word
 vim.keymap.set(
@@ -89,18 +89,27 @@ vim.keymap.set(
 )
 
 -- Wrap loclist/qflist navigation
-vim.keymap.set('n', ']l', '<Cmd>try | lnext | catch | lfirst | catch | endtry<CR>')
-vim.keymap.set('n', '[l', '<Cmd>try | lprevious | catch | llast | catch | endtry<CR>')
-vim.keymap.set('n', ']q', '<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>')
-vim.keymap.set('n', '[q', '<Cmd>try | cprevious | catch | clast | catch | endtry<CR>')
+vim.keymap.set("n", "]l", "<Cmd>try | lnext | catch | lfirst | catch | endtry<CR>")
+vim.keymap.set("n", "[l", "<Cmd>try | lprevious | catch | llast | catch | endtry<CR>")
+vim.keymap.set("n", "]q", "<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
+vim.keymap.set("n", "[q", "<Cmd>try | cprevious | catch | clast | catch | endtry<CR>")
+-- Quicker scrolling through loclist/qflist
+vim.api.nvim_set_keymap("n", "<M-k>", "[l", {})
+vim.api.nvim_set_keymap("n", "<M-j>", "]l", {})
+vim.api.nvim_set_keymap("n", "<M-h>", "[q", {})
+vim.api.nvim_set_keymap("n", "<M-l>", "]q", {})
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
+-- Better exit command for :term
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-[><C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- todo-comments.nvim
+vim.api.nvim_set_keymap("n", "<leader>lt", "", {
+    desc = "Open todo-comments in quickfix list",
+    callback = function()
+        vim.api.nvim_exec2("TodoQuickFix", {})
+    end,
+})
 
 -- INFO: Dev purposes
 P = function(v)
