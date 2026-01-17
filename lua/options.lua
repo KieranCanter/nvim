@@ -3,7 +3,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- Disable mouse mode
-vim.opt.mouse = ''
+vim.opt.mouse = ""
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -18,7 +18,7 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:Cursor/lCurs
 vim.opt.tabstop = 4 -- Defines column multiple used to display tab character
 vim.opt.softtabstop = 4 -- Number of spaces a tab counts for when performing editing operations
 vim.opt.shiftwidth = 4 -- Number of columns that make up one level of (auto)indentation
-vim.opt.expandtab = true -- Use appropriate number of spaces to insert a tab (use CTRL-V<Tab> to insert real tab)
+vim.opt.expandtab = true -- Use appropriate number of spaces to insert a tab
 vim.opt.smartindent = true -- Smart indent with brackets and certain keywords
 
 -- Buffer settings
@@ -45,7 +45,7 @@ vim.opt.wrap = false
 vim.opt.linebreak = true -- if wrapping is on, break at whitespace, not character
 
 -- Set column to break text at when formatting with `gw`
-vim.opt.textwidth = 100
+vim.opt.textwidth = 120
 
 -- Rulers
 vim.opt.colorcolumn = "80,100,120" -- Set column ruler

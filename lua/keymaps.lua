@@ -1,6 +1,11 @@
 -- File explorer
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex, { desc = "File [E]xplorer" })
 
+-- Set cwd to dir of current file
+vim.api.nvim_set_keymap("n", "<leader><leader>", "", { callback = function()
+    vim.api.nvim_exec2("cd %:p:h", {})
+end, desc = "Set cwd" })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -23,10 +28,14 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move left"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move right"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move up"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move down"<CR>')
+
+-- Disable mouse scroll wheel
+vim.keymap.set("n", "<ScrollWheelUp>", '<cmd>echo "Use k to move up"<CR>')
+vim.keymap.set("n", "<ScrollWheelDown>", '<cmd>echo "Use j to move down"<CR>')
 
 -- Horizontal scroll
 vim.keymap.set("n", "<S-h>", "20zh")

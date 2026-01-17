@@ -1,4 +1,4 @@
-vim.api.nvim_set_keymap("n", "<leader>lt", "", {
+vim.api.nvim_set_keymap("n", "<leader>qt", "", {
     desc = "Open todo-comments in quickfix list",
     callback = function()
         vim.api.nvim_exec2("TodoQuickFix", {})
@@ -6,10 +6,8 @@ vim.api.nvim_set_keymap("n", "<leader>lt", "", {
 })
 
 return {
-    {
-        "folke/todo-comments.nvim",
-        event = "VimEnter",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {},
-    },
+    "folke/todo-comments.nvim",
+    event = "VimEnter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
 }
